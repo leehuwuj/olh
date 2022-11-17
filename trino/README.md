@@ -27,9 +27,9 @@ docker pull trinodb/trino
 - Mount the above catalog config file only:
 ```shell
 docker run \
-		-d \
-		--name trino  \
-		-p 8080:8080 \
-		--volume $PWD/etc/catalog:/etc/trino/catalog \
-		trinodb/trino
+    -d \
+    --name trino  \
+    -p 8080:8080 \
+    --volume $PWD/etc/catalog:/etc/trino/catalog \
+    trinodb/trino
 ```
