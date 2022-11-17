@@ -7,7 +7,7 @@
 # Setup
 ## Docker
 ### 1. Update Trino catalog config for Hive metastore
-Look at the [metastore-site.xml](https://github.com/leehuwuj/olh/blob/main/trino/etc/catalog/hive.properties) file and edit all **[CHANGE_ME]** corresponding to your instance information.  
+Look at the [hive.properties](https://github.com/leehuwuj/olh/blob/main/trino/etc/catalog/hive.properties) file and edit all **[CHANGE_ME]** corresponding to your instance information.  
 
 **Tricks**: 
 - If you are testing at your local machine, put the endpoint related to Docker image as `host.docker.internal` along with target service port to easily access the service. Examples:
