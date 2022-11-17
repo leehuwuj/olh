@@ -1,0 +1,52 @@
+<configuration>
+    <property>
+        <name>metastore.thrift.uris</name>
+        <value>thrift://0.0.0.0:9083</value>
+        <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+    </property>
+    <property>
+        <name>metastore.task.threads.always</name>
+        <value>org.apache.hadoop.hive.metastore.events.EventCleanerTask,org.apache.hadoop.hive.metastore.RuntimeStatsCleanerTask</value>
+        <description>Comma separated list of tasks that will be started in separate threads.  These will always be started, regardless of whether the metastore is running in embedded mode or in server mode.  They must implement org.apache.hadoop.hive.metastore.MetastoreTaskThread</description>
+    </property>
+    <property>
+        <name>metastore.expression.proxy</name>
+        <value>org.apache.hadoop.hive.metastore.DefaultPartitionExpressionProxy</value>
+    </property>
+    <property>
+        <name>metastore.warehouse.dir</name>
+        <value>[CHANGEME]</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>org.postgresql.Driver</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:postgresql://[CHANGEME]/[CHANGEME]</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>[CHANGEME]</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>[CHANGEME]</value>
+    </property>
+    <property>
+        <name>fs.s3a.access.key</name>
+        <value>[CHANGEME]</value>
+    </property>
+    <property>
+        <name>fs.s3a.secret.key</name>
+        <value>[CHANGEME]</value>
+    </property>
+    <property>
+        <name>fs.s3a.endpoint</name>
+        <value>http://host.docker.internal:9000</value>
+    </property>
+    <property>
+        <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
+</configuration>
