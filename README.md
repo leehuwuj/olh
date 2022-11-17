@@ -10,4 +10,4 @@ This project to POC of a simple lakehouse architecture which aims to:
 ## Hive metastore:
 - [Hive metastore quick starter](https://github.com/leehuwuj/olh/blob/main/hive-metastore/README.md)
 ## Trino
-- [Trino quick starter](https://github.com/leehuwuj/olh/blob/main/hive-metastore/README.md)
+- [Trino quick starter](https://github.com/leehuwuj/olh/blob/main/trino/README.md)
