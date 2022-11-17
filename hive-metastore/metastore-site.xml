@@ -43,7 +43,7 @@
     </property>
     <property>
         <name>fs.s3a.endpoint</name>
-        <value>http://host.docker.internal:9000</value>
+        <value>[CHANGEME]</value>
     </property>
     <property>
         <name>fs.s3a.path.style.access</name>
