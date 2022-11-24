@@ -14,3 +14,5 @@ There will be no fixed deployment kind but each service is revolve around cloud-
 - [Hive metastore quick starter](https://github.com/leehuwuj/olh/blob/main/hive-metastore/README.md)
 ## Trino
 - [Trino quick starter](https://github.com/leehuwuj/olh/blob/main/trino/README.md)
+## Spark
+- [Spark simple setup for Kubernetes](https://github.com/leehuwuj/olh/blob/main/spark/README.md)
