@@ -19,4 +19,6 @@ There will be no fixed deployment kind but each service is revolve around cloud-
 
 # Practices
 ## Tweets Champions
-- [Example data](https://github.com/leehuwuj/olh/blob/main/resources/data/README.md)
+- [Tweets Data](https://github.com/leehuwuj/olh/blob/main/resources/data/README.md)
+- Examples:
+    - [Pyspark - Tweets Fact ingestion](https://github.com/leehuwuj/olh/tree/main/resources/practices/tweetschampions)
