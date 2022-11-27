@@ -6,7 +6,9 @@ This project to POC of a simple lakehouse architecture which aims to:
 
 There will be no fixed deployment kind but each service is revolve around cloud-native application (containerized) which use can easily to integrate/test with your current platform.
 
-*Note*: This project scope will not cover on security feature of lakehouse (data, table, row,...) access control, resource management.
+*Note*:  
+    - The deployment only for testing purpose. This project scope will not cover on security feature of lakehouse (data, table, row,...) access control, resource management.  
+    - If your machine does not have enough resources then just try the docker or single service deployment instead.
 
 # Architecture
 ![high-level-architecutre](resources/images/architecture.png)
