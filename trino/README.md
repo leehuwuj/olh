@@ -33,3 +33,19 @@ docker run \
     --volume $PWD/etc/catalog:/etc/trino/catalog \
     trinodb/trino
 ```
+
+# Accessment
+Trino support many kinds of authentication (password, oauth2, kerberos,...) but we will not cover the security in this project scope.
+By default, you can access to all trino resource.
+
+## JDBC:
+- As other JDBC drivers, you have to download the Trino JDBC driver, add to client application and using trino connection uri.
+    - JDBC driver download: https://repo1.maven.org/maven2/io/trino/trino-jdbc/
+    - Connection uri:
+        ```
+        jdbc:trino://<username>:<password>@<host>:<port>/<catalog>/<schema>
+        ```
+*Trick*: DBeaver is a database tool supports many kind of databases through JDBC. You can easily connect to Trino via DBeaver in your local machine.
+
+## Python client:
+- Github source code: https://github.com/trinodb/trino-python-client
