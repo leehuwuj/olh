@@ -11,8 +11,8 @@ from pyspark.sql.types import (
 from pyspark.sql import SparkSession
 from pyspark_tweets_fact_ingesting import filter_tweets_fact_table
 
-@pytest.mark.usefixtures("local_session")
-def test_filter_tweets_fact_table(local_session: SparkSession):
+@pytest.mark.usefixtures("spark_local_session")
+def test_filter_tweets_fact_table(spark_local_session: SparkSession):
     expected_schema = StructType([
         StructField('timestamp_ms', TimestampType(), True), 
         StructField('id', LongType(), True), 
@@ -25,7 +25,7 @@ def test_filter_tweets_fact_table(local_session: SparkSession):
         StructField('retweet_count', LongType(), True)]
     )
 
-    data = local_session.read.json("tests/example.json")
+    data = spark_local_session.read.json("tests/example.json")
     output_df = filter_tweets_fact_table(data)
 
     assert output_df.schema == expected_schema
