@@ -34,7 +34,7 @@ docker run \
     trinodb/trino
 ```
 
-# Accessment
+# Access
 Trino support many kinds of authentication (password, oauth2, kerberos,...) but we will not cover the security in this project scope.
 By default, you can access to all trino resource.
 
