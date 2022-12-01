@@ -64,14 +64,18 @@ RUN chmod a+x /tmp/jars-downloader.sh && /tmp/jars-downloader.sh
 COPY ipython_kernel_config.py "/etc/ipython/"
 RUN fix-permissions "/etc/ipython/"
 
+COPY tests /tmp/tests
+RUN chown -R ${NB_UID} /tmp/tests && chmod a+x /tmp/tests/test.sh
+
 USER ${NB_UID}
 
 # Install pyarrow
 RUN mamba install --quiet --yes \
-    'pyarrow' && \
+    'pyarrow' 'pytest' 'testbook' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
 WORKDIR "${HOME}"
+
 EXPOSE 4040
