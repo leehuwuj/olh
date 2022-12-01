@@ -10,7 +10,7 @@ declare -a JARS=(
     https://repo1.maven.org/maven2/org/apache/hive/hive-serde/3.1.3/hive-serde-3.1.3.jar
 )
 
-if [[ ! -z "${SPARK_JARS}" ]];
+if [[ -z "${SPARK_JARS}" ]];
 then
     echo "SPARK_JARS environment variable is not set!"
     exit 1
