@@ -20,6 +20,8 @@ There will be no fixed deployment kind but each service is revolve around cloud-
 - [Trino quick setup](https://github.com/leehuwuj/olh/blob/main/trino/README.md)
 ## Spark
 - [Spark simple setup for Kubernetes](https://github.com/leehuwuj/olh/blob/main/spark/README.md)
+## Jupyter
+- [Jupyter spark docker setup](https://github.com/leehuwuj/olh/blob/main/jupyter/README.md)
 
 # Practices
 ## Tweets Champions
