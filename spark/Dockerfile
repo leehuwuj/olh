@@ -10,7 +10,7 @@ COPY jars-downloader.sh /tmp/jars-downloader.sh
 RUN chmod a+x /tmp/jars-downloader.sh && /tmp/jars-downloader.sh
 
 # Add spark default config
-COPY spark-defaults.conf /usr/local/spark-3.3.1-bin-hadoop3/conf/spark-defaults.conf
+COPY spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf
 
 # Return to spark user
 USER 185
