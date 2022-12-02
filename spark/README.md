@@ -9,11 +9,12 @@
 1. Build base spark image
 - From your host machine, move to SPARK_HOME project and build the base image (python binding support):
 ```shell
-cd $SPARK_HOME && docker build -t spark:base-3.3.1 -f kubernetes/dockerfiles/spark/bindings/python/Dockerfile .
+cd $SPARK_HOME && ./bin/docker-image-tool.sh -r olh -t base -p ./kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
 ```
-2. Move back to this directory and build new spark image which expands from the above base image and add supports for delta lake.
+
+2. Move back to this directory and build new spark image which expands from the above base image and adding supports for delta lake.
 ```shell
-docker build -t spark:base -f Dockerfile .
+docker build -t olh/spark:delta -f Dockerfile .
 ```
 
 ## Submit spark app to kubernetes cluster
@@ -25,13 +26,13 @@ spark-submit \
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=2 \
-    --conf spark.kubernetes.container.image=spark:base \
+    --conf spark.kubernetes.container.image=olh/spark:delta \
     --conf spark.kubernetes.namespace=spark \
     --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     local:///tmp/spark-examples_2.12-3.3.1.jar
 ```
 
-- We can better submit the Spark job defined from S3:
+- We can better submit the Spark job defined from MinIO:
 ```shell
 spark-submit \
     --deploy-mode cluster \
@@ -39,7 +40,7 @@ spark-submit \
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=2 \
-    --conf spark.kubernetes.container.image=spark:base \
+    --conf spark.kubernetes.container.image=olh/spark:delta \
     --conf spark.kubernetes.namespace=spark \
     --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.hadoop.fs.s3a.endpoint=[CHANGE_ME]\
@@ -51,6 +52,7 @@ spark-submit \
     s3a://<bucket>/<jar/python/path>
 ```
 
+> Note that, there are already default configurations which we defined in Spark image, please check them in spark-defaults.conf files. So actually, you dont need to specify them when submiting. I just put them here for the case you wanna overwrite the default config when submitting. 
 
 - Check k8s job:
 ```shell
