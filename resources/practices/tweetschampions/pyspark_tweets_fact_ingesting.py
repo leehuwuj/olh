@@ -6,8 +6,10 @@ from pyspark.sql.dataframe import DataFrame
 import pyspark.sql.functions as F
 from pyspark.sql import SparkSession
 
-HIVE_METASTORE_URIS = os.environ.get("HIVE_METASTORE_URIS", "thrift://localhost:9083")
-
+HIVE_METASTORE_URIS = os.environ.get(
+    "HIVE_METASTORE_URIS", 
+    "thrift://localhost:9083"
+)
 TWEETS_DATA_PATH = os.environ.get(
     "TWEETS_DATA_PATH", 
     "[CHANGE_ME]/TweetsChampions.json"
@@ -19,7 +21,6 @@ TWEETS_FACT_TABLE_NAME = os.environ.get(
 
 def init_spark() -> SparkSession:
     """Init a new Spark session which supports Deltalake"""
-
     return (
         SparkSession
         .builder
@@ -28,7 +29,6 @@ def init_spark() -> SparkSession:
         .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
         .config("spark.hadoop.fs.s3a.path.style.access", "True")
         .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
-        .config("", )
         .enableHiveSupport()
         .getOrCreate()
     )

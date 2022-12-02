@@ -19,6 +19,7 @@ def test_tweets_fact_duplication(trino_client):
             SELECT distinct tf.*
             FROM delta.tweets.tweetsfact tf
         )
-    """);
+    """)
+    
     distinct_count = cur.fetchall()[0]
     assert count == distinct_count
