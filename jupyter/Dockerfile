@@ -60,6 +60,9 @@ RUN if [ -z "${scala_version}" ]; then \
 COPY jars-downloader.sh /tmp/jars-downloader.sh 
 RUN chmod a+x /tmp/jars-downloader.sh && /tmp/jars-downloader.sh
 
+# Add spark default config
+COPY spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf
+
 # Configure IPython system-wide
 COPY ipython_kernel_config.py "/etc/ipython/"
 RUN fix-permissions "/etc/ipython/"
