@@ -1,0 +1,26 @@
+<configuration>
+    <property>
+        <name>fs.s3a.access.key</name>
+        <value></value>
+    </property>
+    <property>
+        <name>fs.s3a.secret.key</name>
+        <value></value>
+    </property>
+    <property>
+        <name>fs.s3a.endpoint</name>
+        <value></value>
+    </property>
+    <property>
+        <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>fs.s3a.impl</name>
+        <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+    </property>
+    <property>
+        <name>fs.s3a.aws.credentials.provider</name>
+        <value>org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider</value>
+    </property>
+</configuration>
