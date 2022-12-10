@@ -1,6 +1,4 @@
 package delta
-import io.delta.standalone.DeltaLog
-import org.apache.hadoop.conf.Configuration
 import org.scalatest.funsuite.AnyFunSuite
 import util.TestUtils.withTempDir
 
@@ -20,6 +18,16 @@ class DeltaTableTest extends AnyFunSuite {
     )
     val fileNum = table.getPartitionFileCount(Map())
     assert(fileNum == 1)
+  }
+
+  test("test minio data with Delta scan") {
+    val table: DeltaTable = new DeltaTable(
+      "s3a://lake/warehouse/tweetsfact",
+      Seq()
+    )
+    val fileNum1 = table.getPartitionFileCount(Map("lang" -> "en"))
+    val fileNum2 = table.betterGetPartitionFileCount(Map("lang" -> "en"))
+    assert(fileNum1 == fileNum2)
   }
 
 }
