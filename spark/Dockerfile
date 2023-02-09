@@ -1,4 +1,4 @@
-FROM olh/spark/spark-py:base 
+FROM olh/spark-py:base 
 
 ENV SPARK_JARS="/opt/spark/jars/"
 
