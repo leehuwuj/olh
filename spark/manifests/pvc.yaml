@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/Users/huu/Developments/local/spark/spark-k8s/local"
+    path: "<UPDATE_ME>"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
