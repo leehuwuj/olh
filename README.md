@@ -15,13 +15,15 @@ There will be no fixed deployment kind but each service is revolve around cloud-
 
 # Setup:
 ## Hive metastore:
-- [Hive metastore quick setup](https://github.com/leehuwuj/olh/blob/main/hive-metastore/README.md)
+- [Hive metastore quick setup](https://github.com/leehuwuj/olh/blob/main/hive-metastore)
 ## Trino
-- [Trino quick setup](https://github.com/leehuwuj/olh/blob/main/trino/README.md)
+- [Trino quick setup](https://github.com/leehuwuj/olh/blob/main/trino)
 ## Spark
-- [Spark simple setup for Kubernetes](https://github.com/leehuwuj/olh/blob/main/spark/README.md)
+- [Spark simple setup for Kubernetes](https://github.com/leehuwuj/olh/blob/main/spark)
 ## Jupyter
-- [Jupyter spark docker setup](https://github.com/leehuwuj/olh/blob/main/jupyter/README.md)
+- [Jupyter spark docker setup](https://github.com/leehuwuj/olh/blob/main/jupyter)
+## Dagster
+- [Dagster hackernews example project](https://github.com/leehuwuj/olh/blob/main/dagster)
 
 # Practices
 ## Tweets Champions
