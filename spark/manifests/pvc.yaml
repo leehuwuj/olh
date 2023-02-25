@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sparkrwx
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/Users/huu/Developments/local/spark/spark-k8s/local"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sparkrwx
+spec:
+  storageClassName: manual
+  volumeName: sparkrwx
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
