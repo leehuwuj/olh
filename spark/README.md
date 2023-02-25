@@ -1,10 +1,19 @@
 # Spark kubernetes
 ## Preparation
 ### Kubernetes cluster
-1. Namespace  
-// TODO: 
-2. Service account  
-// TODO: 
+- Make sure your kubernetes cluster is available and there is an namespace for Spark.
+```
+kubectl create namespace spark
+```
+
+- Update Spark manifest corespond to your environment (host mount volume path, cpu and ram resources,...)
+
+- Apply the k8s resources for Spark:
+```
+kubectl -n spark apply -f manifests
+```
+
+
 ### Docker image
 1. Build base spark image
 - From your host machine, move to SPARK_HOME project and build the base image (python binding support):
