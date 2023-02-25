@@ -30,3 +30,7 @@ There will be no fixed deployment kind but each service is revolve around cloud-
 - [Tweets Data](https://github.com/leehuwuj/olh/blob/main/resources/data/README.md)
 - Examples:
     - [Pyspark - Tweets Fact ingestion](https://github.com/leehuwuj/olh/tree/main/resources/practices/tweetschampions)
+
+## Dagster example project
+Dagster + Arrow + PyDelta + Trino
+- [Dasgter hackernews](https://github.com/leehuwuj/olh/tree/main/dagster)
