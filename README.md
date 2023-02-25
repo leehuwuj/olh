@@ -32,5 +32,5 @@ There will be no fixed deployment kind but each service is revolve around cloud-
     - [Pyspark - Tweets Fact ingestion](https://github.com/leehuwuj/olh/tree/main/resources/practices/tweetschampions)
 
 ## Dagster example project
-Dagster + Arrow + PyDelta + Trino
+Example using Dagster to orchestrate data workflow: [Arrow -> (PyDelta + Trino or PySpark Delta) -> DBT]
 - [Dasgter hackernews](https://github.com/leehuwuj/olh/tree/main/dagster)
