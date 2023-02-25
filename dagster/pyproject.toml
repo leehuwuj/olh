@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "olh-dagster"
+version = "0.1.0"
+description = "POC Dagster in Open source lakehouse stack"
+authors = ["leehuwuj <leehuwuj@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+dagit = "1.1.19"
+dagster = "1.1.19"
+dagster-postgres = "0.17.19"
+dagster-aws = "0.17.19"
+dagster-k8s = "0.17.19"
+dagster-dbt = "^0.17.19"
+dagster-pyspark = "0.17.19"
+pandas = "^1.5.2"
+trino = "^0.321.0"
+deltalake = "^0.7.0" 
+pyarrow = "10.0.1"
+dbt-core = "^1.4.1"
+dbt-trino = "^1.4.0"
+pyspark = "^3.3.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
