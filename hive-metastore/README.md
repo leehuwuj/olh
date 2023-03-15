@@ -47,5 +47,6 @@ docker run \
 docker run \
     --name metastore \
     -p 9083:9083 \
-    olh/hive-metastore
+    olh/hive-metastore \
+    run
 ```
