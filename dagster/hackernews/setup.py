@@ -7,5 +7,18 @@ setup(
         "dagster",
         "dagster-cloud"
     ],
-    extras_require={"dev": ["dagit", "pytest"]},
+    extras_require={
+        "dev": [
+            "pytest",
+            "dagster-postgres",
+            "dagster-aws",
+            "dagster-k8s",
+            "dagster-dbt",
+            "dagster-pyspark",
+            "pandas",
+            "trino",
+            "deltalake",
+            "pyarrow"
+        ]
+    },
 )
