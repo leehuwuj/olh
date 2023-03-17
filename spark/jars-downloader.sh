@@ -1,3 +1,5 @@
+#!bin/sh
+
 declare -a JARS=(
     https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.319/aws-java-sdk-bundle-1.12.319.jar \
     https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.1.1/delta-core_2.12-2.1.1.jar \
