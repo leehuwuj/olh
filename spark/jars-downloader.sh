@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 declare -a JARS=(
     https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.319/aws-java-sdk-bundle-1.12.319.jar \
