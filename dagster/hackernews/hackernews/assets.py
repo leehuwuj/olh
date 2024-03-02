@@ -1,12 +1,8 @@
-import json
 import pandas as pd
 import requests
-from dagster import Definitions, MetadataValue, Output, asset, file_relative_path
-from pyarrow.fs import S3FileSystem
+from dagster import MetadataValue, Output, asset
 from deltalake.writer import write_deltalake
-from deltalake import DeltaTable
 
-from dagster import asset
 
 @asset(
     io_manager_key='s3_io_manager',
@@ -22,6 +18,7 @@ def hackernews_top_story_ids(context):
         "https://hacker-news.firebaseio.com/v0/topstories.json"
     ).json()
     return top_story_ids[:10]
+
 
 # asset dependencies can be inferred from parameter names
 @asset(
@@ -59,7 +56,6 @@ def hackernews_top_stories(context, hackernews_top_story_ids):
     metadata={"stored_as": "parquet"}
 )
 def hackernews_items(context):
-    
     def get_last_carwled_item_id(context):
         rs = context.resources.trino_client.query(
             "SELECT max(id) FROM hackernews.items"
@@ -68,7 +64,6 @@ def hackernews_items(context):
         return rs[0][0]
 
     arg_max_result = context.op_config.get("max_result", 10)
-    
     # get latest id
     try:
         last_id = int(get_last_carwled_item_id(context))
@@ -77,7 +72,7 @@ def hackernews_items(context):
 
     print(f"Last id: {last_id}")
     max_id = int(requests.get(
-        f"https://hacker-news.firebaseio.com/v0/maxitem.json"
+        "https://hacker-news.firebaseio.com/v0/maxitem.json"
     ).json())
     print(f"Max id: {max_id}")
     to_crawl_ids = list(range(last_id + 1, min(max_id, last_id+arg_max_result)))
@@ -98,6 +93,7 @@ def hackernews_items(context):
 
     return Output(value=df, metadata=metadata)
 
+
 @asset(
     required_resource_keys={'s3', 'pyspark'},
     compute_kind="pyspark",
@@ -112,6 +108,7 @@ def items_spark(context, hackernews_items):
         .format("delta")
         .mode("overwrite")
         .saveAsTable("hackernews.items"))
+
 
 @asset(
     key_prefix=['hackernews'],
@@ -130,7 +127,7 @@ def items(context, hackernews_items):
     #     "AWS_STORAGE_ALLOW_HTTP": "true"
     # }
     storage_options = context.resources.arrow.storage_options
-    
+
     write_deltalake(
         table_or_uri="s3://lake-dev/warehouse/hackernews.db/items",
         storage_options=storage_options,
@@ -152,3 +149,11 @@ def items(context, hackernews_items):
             context.log.info("Skip register delta table since table already existed!")
             return
 
+
+assets = [
+    hackernews_top_story_ids,
+    hackernews_top_stories,
+    hackernews_items,
+    items_spark,
+    items
+]

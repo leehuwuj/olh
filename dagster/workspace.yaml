@@ -1,0 +1,9 @@
+load_from:
+  # Enable this if you're gonna test with docker
+  # - grpc_server:
+  #     host: host.docker.internal
+  #     port: 4266
+  #     location_name: "hackernews"
+  
+  # Enable this if you're gonna test directly in your hots
+  - python_module: hackernews
